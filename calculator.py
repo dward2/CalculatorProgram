@@ -18,16 +18,28 @@ def check_LDL(LDL):
         return "Very High"
 
 
+def check_TLC(TLC):
+    if TLC < 200:
+        return "Normal"
+    elif 200 <= TLC <= 239:
+        return "Borderline high"
+    else:
+        return "High"
+
+
 def cholestoral_interface():
     print("Cholesterol check")
     chol_input = input("Enter your cholesterol test result: ")
     chol_data = chol_input.split("=")
     if chol_data[0] == "HDL":
         result = check_HDL(int(chol_data[1]))
-        print("The HDL cholesterol level is {}".format(result))
+        print("The HDL cholesterol level is {}.".format(result))
     elif chol_data[0] == "LDL":
         results = check_LDL(int(chol_data[1]))
-        print("The LDL cholesterol level is {}".format(results))
+        print("The LDL cholesterol level is {}.".format(results))
+    elif chol_data[0] == "TLC":
+        results = check_TLC(int(chol_data[1]))
+        print("The total cholesterol level is {}.".format(results))
 
 
 def interface():
