@@ -6,13 +6,29 @@ def check_HDL(HDL_result):
     else:
         return "low"
 
+
+def check_LDL(LDL):
+    if LDL < 130:
+        return "Normal"
+    elif 130 <= LDL <= 159:
+        return "Borderline high"
+    elif 159 < LDL <= 189:
+        return "High"
+    else:
+        return "Very High"
+
+
 def cholestoral_interface():
     print("Cholesterol check")
-    chol_input = input("Enter your cholestoral test result: ")
+    chol_input = input("Enter your cholesterol test result: ")
     chol_data = chol_input.split("=")
     if chol_data[0] == "HDL":
         result = check_HDL(int(chol_data[1]))
-        print("The result is {}".format(result))
+        print("The HDL cholesterol level is {}".format(result))
+    elif chol_data[0] == "LDL":
+        results = check_LDL(int(chol_data[1]))
+        print("The LDL cholesterol level is {}".format(results))
+
 
 def interface():
     print("My calculator program")
@@ -32,4 +48,3 @@ def interface():
 
 if __name__ == "__main__":
     interface()
-    
