@@ -1,3 +1,5 @@
+
+
 def check_HDL(HDL_result):
     if HDL_result >= 60:
         return "Normal"
@@ -31,6 +33,10 @@ def cholestoral_interface():
     print("Cholesterol check")
     chol_input = input("Enter your cholesterol test result: ")
     chol_data = chol_input.split("=")
+    if chol_data[0] in ["LDL", "HDL", "TLC"]:
+       print("Good input")
+    else:
+        print("bad input")
     if chol_data[0] == "HDL":
         result = check_HDL(int(chol_data[1]))
         print("The HDL cholesterol level is {}.".format(result))
@@ -59,4 +65,5 @@ def interface():
         
 
 if __name__ == "__main__":
+    print("calculator is {}".format(__name__))
     interface()
